@@ -4,25 +4,39 @@ DANIEL REECY
 KEY STYLE - HAIR WAX
 */
 
+/*
+TODO: WEEK 4 UPDATE:
+- added and working on login popup
+- added custom feature, navigation bar text and symbol gow on hover
+ */
+
 html {
-  color: #222;
+  /*color: #222;*/
   font-size: 1em;
   line-height: 1.4;
 }
 
 body {
   margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
 .navBar {
   text-decoration: none;
   background-color: white;
   font-family: "Lobster", sans-serif;
+  font-size: 26px;
   overflow: hidden;
   display: grid;
   align-items: center;
   grid-template-columns: auto auto auto;
   column-gap: 2rem;
+  top: 0;
+  position: relative;
+  transition: 0.4s;
+  z-index: 10;
+  height: 60px;
 }
 #navBar ul {
   list-style: none;
@@ -40,7 +54,7 @@ body {
 }
 .headerLogoLink{
   display: inline-block;
-  padding: 0rem;
+  padding: 0;
 }
 .navLogo {
   width: 50px;
@@ -56,6 +70,7 @@ body {
   width: 2rem;
   fill: none;
   vertical-align: middle;
+  horiz-align: left;
   margin-left: 1rem;
 }
 .navIcons {
@@ -66,25 +81,143 @@ body {
 
 /* Style the links inside the navigation bar */
 .navBar a {
-  /*float: left;*/
-  color: black;
+  color: #011627;
   text-align: center;
-  /*padding: 14px 16px;*/
   text-decoration: none;
-  font-size: 22px;
+  /*font-size: 22px;*/
 }
 
-/* Change the color of links on hover */
-.navBar a:hover {
-  background-color: #ddd;
+.navIcons a img,
+.navIcons div {
+  display: flex; /* or inline-flex if needed */
+  align-items: center;
+}
+
+/* On hover of Navigation bar elements (!logo) grow element size*/
+.navbarGrowOnHover:hover {
+  transform: scale(1.25);
+
+}
+
+.navbarGrowOnHover {
+  transition: all .25s ease-in-out;
+}
+
+/* ################################ */
+/* Underline animation on hover of navigation bar text */
+.underlineHover {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
   color: black;
 }
 
-/* Add a color to the active/current link */
-.navBar a.active {
-  background-color: #04AA6D;
-  color: blue;
+.underlineHover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px; /* Thickness of the underline */
+  background-color: #ff9f1c; /* Color of the underline */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
+/* Text underline slides in from left */
+.underlineHover:hover::after {
+  transform: scaleX(1);
+}
+/* text underline slides out to left */
+.underlineHover:not(:hover)::after {
+  transition: transform .4s ease;
+  transform-origin: right;
+}
+
+
+
+
+
+/* FIXME
+    FIX POSITIONING
+    SHOULD HANG ON TOP RIGHT BELOW HEADER
+*/
+/* The popup form - hidden by default */
+.login-popup {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 15px;
+  width: 350px;
+  padding: 20px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  background: beige;
+  box-sizing: border-box;
+}
+
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0px;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+/* clicking on overlay closes login display */
+.overlay {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 8;
+}
+
+#pageFooter {
+  width: 100%;
+  height: 1600px;
+  top: 0;
+}
+
 
 
 
