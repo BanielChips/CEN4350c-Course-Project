@@ -5,20 +5,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CEN 4350C - Course Project - html build</title>
-  <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/style.css">
   <meta name="description" content=
     "This is the course project for CEN 4350C. It is the landing page for the Key Style brand men's hair styling products.">
+
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js"></script>
   <link rel="icon" href="images/PNG%20files/Favicon.png" sizes="any">
 
 </head>
 
+<!--
+TODO:
+  CURRENT -
+    INCLUDING LOGIN FORM POPUP
+  AHEAD -
+    CREATE SHOPPING CART DISPLAY POPUP "CHECKOUT"
+    CREATE NEWSLETTER EMAIL ENTRY FIELD
+FIXME:
+  NAVIGATION BAR LOGO DIV IS CONTAINED IN AN ANCHOR
+  - CHANGE ANCHOR TO DIV AND FIND WHERE THE ANCHOR SHOULD BE
+  CURRENTLY, MOUSING OVER BLANK SPACE ON THE NAV REVEALS IT TO BE A LINK
+-->
+
 <body>
   <!--navigation bar-->
-  <!--TODO: Create and Implement JS class "sticky header. Wrap header in new class"-->
   <header id="navBar" class="navBar">
 
-  <!--  link to home page, left side-->
+    <!--  link to home page, left side-->
     <a class="headerLogoLink" href="#home">
       <div class="headerLogoWrapper">
         <img class="navLogo" src="images/PNG%20files/Favicon.png">
@@ -27,18 +41,67 @@
 
   <!--  centered webpage links, navigation-->
     <ul>
-      <li><a class="navElement" href="#shop">Shop</a></li>
-      <li><a class="navElement" href="#style tips">Your Style</a></li>
-      <li><a class="navElement" href="#about Us">About Us</a></li>
-      <li><a class="navElement" href="#newsletter">Newsletter</a></li>
+      <li><a class="navElement navbarGrowOnHover underlineHover" href="#shop">Shop</a></li>
+      <li><a class="navElement navbarGrowOnHover underlineHover" href="#style tips">Your Style</a></li>
+      <li><a class="navElement navbarGrowOnHover underlineHover" href="#about Us">About Us</a></li>
+      <li><a class="navElement navbarGrowOnHover underlineHover" href="#newsletter">Newsletter</a></li>
     </ul>
 
   <!--  webpage login request, right side-->
     <nav class="navIcons">
-      <a href="#account" class="logo"><img src="images/SVG%20files/Account.svg" alt="account"/></a>
-      <a href="#shoppingCart" class="logo"><img src="images/SVG%20files/Cart.svg" alt="cart"></a>
+<!--        Disabling anchor while implementing login display - debugging why login is not popping up
+            <a href="#account" class="logo navbarGrowOnHover login-button" onclick="openForm()">-->
+<!--        <img src="images/SVG%20files/Account.svg" alt="account"/></a>-->
+      <div class="logo navbarGrowOnHover" onclick="openForm()">
+        <img src="images/SVG%20files/Account.svg" alt="account"/>
+      </div>
+      <a href="#shoppingCart" class="logo navbarGrowOnHover">
+        <img src="images/SVG%20files/Cart.svg" alt="cart"></a>
     </nav>
   </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--
+  ---ADDED---
+  on navBar .navIcons account link element: added class="login-button" onclick="openForm()"
+  TODO:
+    - Form below needs adjustment. Change it to fit my code. Need file for data collection.
+    - shopping cart popup - shows items in cart
+    - NEWSLETTER EMAIL ENTRY FORM - GRAYS OUT BACKGROUND - OFFCLICK=CLOSE POPUP
+
+  -->
+<!-- button to open form -->
+
+  <!-- The form -->
+  <div class="login-popup" id="loginForm">
+<!-- action is what action takes place. This action sends collected info to "action_page.php" file-->
+    <form action="" class="form-container" >
+      <h1>Login</h1>
+
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" id="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" id="psw" required>
+
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+
 
   <!--  top of page, under nav bar-->
   <div style="background: coral">
@@ -89,15 +152,13 @@
   </div>
 
   <!--  webpage footer container-->
-  <div style="background: burlywood">
+  <div id="pageFooter" style="background: burlywood">
   <!--  page footer-->footer container
-    <div>
-  <!--
+    <div class="footerContent">
   contact
   about
   FAQ
   jobs
-  -->
     </div>
   </div>
 </body>
