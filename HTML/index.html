@@ -10,6 +10,7 @@
 
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mediaQueries.css">
   <script src="js/app.js"></script>
   <link rel="icon" href="images/PNG%20files/Favicon.png" sizes="any">
 
@@ -18,35 +19,28 @@
 <!--
 TODO:
   CURRENT -
-    INCLUDING LOGIN FORM POPUP
   AHEAD -
-    CREATE SHOPPING CART DISPLAY POPUP "CHECKOUT"
-    CREATE NEWSLETTER EMAIL ENTRY FIELD
+
 FIXME:
-  NAVIGATION BAR LOGO DIV IS CONTAINED IN AN ANCHOR
-  - CHANGE ANCHOR TO DIV AND FIND WHERE THE ANCHOR SHOULD BE
-  CURRENTLY, MOUSING OVER BLANK SPACE ON THE NAV REVEALS IT TO BE A LINK
+
 -->
 
 <body>
   <!--navigation bar-->
   <header id="navBar" class="navBar">
-
     <!--  link to home page, left side-->
     <a class="headerLogoLink" href="#home">
       <div class="headerLogoWrapper">
         <img class="navLogo" src="images/PNG%20files/Favicon.png">
       </div>
     </a>
-
   <!--  centered webpage links, navigation-->
     <ul>
       <li><a class="navElement navbarGrowOnHover underlineHover" href="#shop">Shop</a></li>
       <li><a class="navElement navbarGrowOnHover underlineHover" href="#style tips">Your Style</a></li>
       <li><a class="navElement navbarGrowOnHover underlineHover" href="#about Us">About Us</a></li>
-      <li><a class="navElement navbarGrowOnHover underlineHover" href="#newsletter">Newsletter</a></li>
+<!--      <li><a class="navElement navbarGrowOnHover underlineHover" href="#newsletter">Newsletter</a></li>-->
     </ul>
-
   <!--  webpage login request, right side-->
     <nav class="navIcons">
 <!--        Disabling anchor while implementing login display - debugging why login is not popping up
@@ -61,30 +55,6 @@ FIXME:
   </header>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  <!--
-  ---ADDED---
-  on navBar .navIcons account link element: added class="login-button" onclick="openForm()"
-  TODO:
-    - Form below needs adjustment. Change it to fit my code. Need file for data collection.
-    - shopping cart popup - shows items in cart
-    - NEWSLETTER EMAIL ENTRY FORM - GRAYS OUT BACKGROUND - OFFCLICK=CLOSE POPUP
-
-  -->
-<!-- button to open form -->
-
-  <!-- The form -->
   <div class="login-popup" id="loginForm">
 <!-- action is what action takes place. This action sends collected info to "action_page.php" file-->
     <form action="" class="form-container" >
@@ -99,67 +69,95 @@ FIXME:
       <button type="submit" class="btn">Login</button>
     </form>
   </div>
-
+<!--  Overlay is solution to closing login form -->
   <div class="overlay" id="overlay"></div>
 
 
-  <!--  top of page, under nav bar-->
-  <div style="background: coral">
-    page header. space Behind navigation bar but above product display element
-  <!--  top of page-->
-  <!--  overlapped by header bar-->
+<!--  TODO
+        PRODUCT-DISPLAY-V2-->
+  <div class="product-display-v2">
+    <div class="product-one fade-in-left">
+      <img src="images/PNG files/tempProductImage.jpg" class="product-img-left" alt="Product Image One">
+      <div class="product-details">
+        <h1 class="product-name">Hair Wax</h1>
+        <hr>
+        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Alias, aperiam blanditiis culpa enim fuga, maiores nisi quod sequi tenetur ut
+          veniam voluptates! Architecto consequuntur dolorum error magni nesciunt obcaecati rerum.</p>
+      </div>
+    </div>
+
+    <div class="product-two fade-in-right">
+      <div class="product-details center-display">
+        <h1 class="product-name">Pomade</h1>
+        <hr>
+        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Alias, aperiam blanditiis culpa enim fuga, maiores nisi quod sequi tenetur ut
+          veniam voluptates! Architecto consequuntur dolorum error magni nesciunt obcaecati rerum.</p>
+      </div>
+      <img src="images/PNG files/tempProductImage.jpg" class="product-img-right" alt="Product Image Two">
+    </div>
+
+    <div class="product-three fade-in-left">
+      <img src="images/PNG files/tempProductImage.jpg" class="product-img-left" alt="Product Image Three">
+      <div class="product-details">
+        <h1 class="product-name">Grease</h1>
+        <hr>
+        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Alias, aperiam blanditiis culpa enim fuga, maiores nisi quod sequi tenetur ut
+          veniam voluptates! Architecto consequuntur dolorum error magni nesciunt obcaecati rerum.</p>
+      </div>
+    </div>
   </div>
 
-  <!--  horizontal display-->
-  <div style="background: lightseagreen">
-    horizontal display
-  <!--  product horizontal display-->
-    <div style="background: indianred">
-      product image display. No CSS implemented
-  <!--  product image - prominent (left) display-->
-    </div>
-    <div style="background: darkolivegreen">
-      product description
-  <!--    product description (of prominent display)-->
-    </div>
-    <div>
-  <!--    first diagonal display-->
-    </div>
-    <div>
-  <!--    second diagonal display-->
-    </div>
-    <div>
-  <!--    third diagonal display-->
-    </div>
-    <div>
-  <!--    another diagonal display-->
-    </div>
+  <hr class="page-split">
+
+  <h1 class="why-key-style-h1">Why Key Style?</h1>
+  <div class="why-key-style">
+    <img src="images/PNG files/TempInsert.jpg" alt="horribly drawn image"/>
+    <p>Key style is the Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Alias, aperiam blanditiis culpa enim fuga, maiores nisi quod sequi tenetur ut
+      veniam voluptates! Architecto consequuntur dolorum error magni nesciunt obcaecati rerum.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Alias, aperiam blanditiis culpa enim fuga, maiores nisi quod sequi tenetur ut
+      veniam voluptates! Architecto consequuntur dolorum error magni nesciunt obcaecati rerum.
   </div>
 
-  <!--  different product cards display-->
-  <div style="background: antiquewhite">
-    different product container
-  <!--  different product card container-->
-    <div>
-      <!--    different product 1-->
-    </div>
-    <div>
-      <!--    different product 2-->
-    </div>
-    <div>
-      <!--    different product 3-->
+  <div class="newsletter-signup-container">
+    <h2>Subscribe to Our Newsletter</h2>
+    <form class="newsletter-signup-form">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+
+
+  <div class="alternate-products-container">
+    <h1>Additional Care</h1>
+    <div class="alternate-product-display">
+      <div class="alternate-product">
+        <img src="images/PNG%20files/comb.png" alt="alt-1-img"/>
+        <h1>Styling Comb</h1>
+      </div>
+      <div class="alternate-product">
+        <img src="images/PNG%20files/hairCreme.jpg" alt="alt-2-img">
+        <h1>Hair Cream</h1>
+      </div>
+      <div class="alternate-product">
+        <img src="images/PNG%20files/hairGel.jpg" alt="alt-3-img">
+        <h1>Hair Gel</h1>
+      </div>
     </div>
   </div>
 
   <!--  webpage footer container-->
-  <div id="pageFooter" style="background: burlywood">
-  <!--  page footer-->footer container
-    <div class="footerContent">
-  contact
-  about
-  FAQ
-  jobs
-    </div>
+  <div id="pageFooter" style="background: #011627">
+    <ul class="footerContent">
+        <li>contact</li>
+        <li>about</li>
+        <li>FAQ</li>
+        <li>jobs</li>
+    </ul>
   </div>
 </body>
 </html>

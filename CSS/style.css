@@ -19,12 +19,21 @@ html {
 body {
   margin: 0;
   padding: 0;
+  top: 0;
+  bottom: 100px;
+  width: 100%;
+  height: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: #FDFFFC;
+  z-index: 0;
 }
 
 .navBar {
   text-decoration: none;
-  background-color: white;
+  background-color: #011627;
   font-family: "Lobster", sans-serif;
   font-size: 26px;
   overflow: hidden;
@@ -37,14 +46,16 @@ body {
   transition: 0.4s;
   z-index: 10;
   height: 60px;
+  padding-bottom: 5px;
 }
+
 #navBar ul {
   list-style: none;
   display: inline-flex;
-  background: white;
   margin: 1rem;
   justify-content: space-evenly;
 }
+
 .navElement {
   margin: .1rem .6rem .1rem .6rem;
   display: flex;
@@ -52,19 +63,23 @@ body {
   align-items: center;
   align-content: space-between;
 }
+
 .headerLogoLink{
   display: inline-block;
   padding: 0;
 }
+
 .navLogo {
   width: 50px;
   height: 50px;
   margin-left: 2rem;
 }
+
 .headerLogoWrapper {
   width: 100%;
   display: flex;
 }
+
 .logo {
   height: 2rem;
   width: 2rem;
@@ -79,31 +94,29 @@ body {
   margin: 1rem 2rem;
 }
 
-/* Style the links inside the navigation bar */
+
 .navBar a {
-  color: #011627;
+  color: #FDFFFC;
   text-align: center;
   text-decoration: none;
-  /*font-size: 22px;*/
 }
 
 .navIcons a img,
 .navIcons div {
-  display: flex; /* or inline-flex if needed */
+  display: flex;
   align-items: center;
 }
 
 /* On hover of Navigation bar elements (!logo) grow element size*/
 .navbarGrowOnHover:hover {
+  cursor: pointer;
   transform: scale(1.25);
-
 }
 
 .navbarGrowOnHover {
   transition: all .25s ease-in-out;
 }
 
-/* ################################ */
 /* Underline animation on hover of navigation bar text */
 .underlineHover {
   display: inline-block;
@@ -135,9 +148,6 @@ body {
 }
 
 
-
-
-
 /* FIXME
     FIX POSITIONING
     SHOULD HANG ON TOP RIGHT BELOW HEADER
@@ -146,22 +156,22 @@ body {
 .login-popup {
   display: none;
   position: absolute;
-  top: 100%;
+  top: 60px;
   right: 15px;
   width: 350px;
   padding: 20px;
   border: 3px solid #f1f1f1;
   z-index: 9;
-  background: beige;
+  background: #FDFFFC;
   box-sizing: border-box;
 }
-
 
 /* Add styles to the form container */
 .form-container {
   max-width: 300px;
   padding: 10px;
-  background-color: white;
+  background-color: #FDFFFC;
+  font-family: Montserrat, sans-serif;
 }
 
 /* Full-width input fields */
@@ -170,7 +180,7 @@ body {
   padding: 15px;
   margin: 5px 0px;
   border: none;
-  background: #f1f1f1;
+  background: #FDFFFC;
 }
 
 /* When the inputs get focus, do something */
@@ -181,7 +191,7 @@ body {
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-  background-color: #04AA6D;
+  background-color: #ff9f1c;
   color: white;
   padding: 16px 20px;
   border: none;
@@ -189,11 +199,6 @@ body {
   width: 100%;
   margin-bottom:10px;
   opacity: 0.8;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
 }
 
 /* Add some hover effects to buttons */
@@ -212,10 +217,385 @@ body {
   z-index: 8;
 }
 
-#pageFooter {
+
+
+/*TODO
+   SPACE BELOW HEADER*/
+.spaceBelowHeaderAboveProducts {
+  top:0;
+  height: 85px;
   width: 100%;
-  height: 1600px;
+}
+
+
+
+
+/* TODO
+    HORIZONTAL PRODUCT DISPLAY*/
+.productDisplay {
+  display: none;
+  /*display: inline-flex;*/
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 400px;
+  padding: 10px 20px;
+}
+
+/*TODO
+   PRODUCT DISPLAY V2*/
+.product-display-v2 {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  color: #011627;
+  min-height: 200vh;
+}
+
+.product-one {
+  display: flex;
+  flex-direction: row;
+  height: 25%;
+  width: 100%;
+}
+
+.product-two {
+  display: flex;
+  justify-content: right;
+  flex-direction: row;
+  height: 25%;
+  width: 100%;
+}
+
+.product-three {
+  display: flex;
+  flex-direction: row;
+  height: 25%;
+  width: 100%;
+}
+
+.product-display-v2 img {
+  height: auto;
+}
+
+.product-img-left {
+  align-self: flex-start;
+  margin: 10px 10px 10px 10%;
+}
+
+.product-img-right {
+  align-self: flex-end;
+  margin: 10px 10% 10px 10px;
+}
+
+.product-display-v2 .product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+  margin: 5px 5px 5px 10%;
+  width: 300px;
+  color: #011627;
+}
+
+.product-display-v2 .center-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+  margin: 5px 10% 5px 5px;
+  width: 300px;
+  color: #011627;
+}
+
+.center-display .product-name h1 {
+  margin: 0;
+  font-size: 24px;
+  text-align: right;
+  background: #ff9f1c;
+}
+
+.product-display-v2 .product-details h1 {
+  margin: 0;
+  font-size: 24px;
+  text-align: left;
+  font-family: "Bebas Neue", sans-serif;
+  color: #011627;
+}
+
+.product-display-v2 .product-details p {
+  margin: 0;
+  font-size: 16px;
+  font-family: Montserrat, sans-serif;
+  color: #011627;
+}
+
+.product-display-v2 .product-details hr {
+  border-top: 2px solid #011627;
+  margin: 0 0.5em;
+  color: #011627;
+}
+
+/* Product enters display from left of viewport */
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: fade-in-left 2s ease-out forwards;
+}
+
+@keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Product enters display from right of viewport */
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(100%);
+  animation: fade-in-right 2s ease-out forwards;
+}
+
+@keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-img {
+  opacity: 0;
+  transform: translateX(0);
+  animation: fade-in-img 2s ease-out;
+}
+
+@keyframes fade-in-img {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.page-split {
+  margin: 0 auto;
+  width: 75%;
+}
+
+.why-key-style {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  height: auto;
+  width: 100%;
+  margin-bottom: 10px;
+  font-family: Lobster, sans-serif, Arial;
+}
+
+.why-key-style-h1 {
+  text-align: center;
+  font-family: Lobster, sans-serif;
+  margin-right: 15px;
+}
+
+.why-key-style p {
+  font-family: Montserrat, sans-serif;
+  text-align: center;
+  width: 50%;
+  margin: 10px 15px;
+  padding-left: 20px;
+  border-left: 2px solid #011627;
+}
+
+.why-key-style img {
+  height: 200px;
+  width: 40%;
+  margin: 15px 20px;
+}
+
+.newsletter-signup-container {
+  background-color: #FDFFFC;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-signup-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.newsletter-signup-container p {
+  font-size: 16px;
+  color: #FDFFFC;
+  margin-bottom: 20px;
+}
+
+.newsletter-signup-form {
+  display: flex;
+  justify-content: center;
+  border-radius: 50px;
+  box-shadow: 0 0 0 2px #ff9f1c;
+}
+
+.newsletter-signup-form input[type="email"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #FDFFFC;
+  border-radius: 50px 0 0 50px;
+  width: 250px;
+}
+
+.newsletter-signup-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff9f1c;
+  color: #FDFFFC;
+  border: none;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+}
+
+.newsletter-signup-form button:hover {
+  background-color: #e68a00;
+}
+
+
+/*TODO
+   ALTERNATE PRODUCTS*/
+.alternate-products-container {
+  margin: 10px 0;
+  font-family: Arial, sans-serif;
+}
+
+.alternate-products-container h1 {
+  text-align: center;
+}
+
+.alternate-product-display {
+  font-size: 1em;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.alternate-product {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  width: calc(25% - 20px);
+  height: 300px;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: -10px -10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.alternate-product img {
+  max-width: 100%;
+  max-height: 150px;
+  margin-bottom: 10px;
+}
+
+.alternate-product h1 {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.alternate-product p {
+  font-size: 1em;
+  margin: 5px 0;
+  color: #333;
+}
+
+.alternate-product::before {
+  content: "";
+  position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #FDFFFC;
+  opacity: 0.1;
+  backdrop-filter: blur(10px);
+  z-index: -1;
+}
+
+/*TODO
+   FOOTER*/
+.pageFooter {
+  width: 100%;
+  height: 100px;
+  bottom: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  padding: 10px;
+  margin: 0;
+  padding-inline-start: 0;
+}
+
+.footerContent li{
+  margin: 3px 10px;
+  list-style-type: none;
+  text-align: center;
+  color: #FDFFFC;
+  font-family: "Bebas Neue", sans-serif, Arial;
+  font-size: 20px;
+  opacity: 0.8;
+  transition: all .5s ease-in-out;
+}
+
+.footerContent li:hover {
+  cursor: pointer;
+  transform: scale(1.25) translateY(-10px);
+  opacity: 1.0;
 }
 
 
@@ -242,23 +622,6 @@ body {
 
 
 
-
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
 
 /*
  * A better looking default horizontal rule
@@ -272,202 +635,3 @@ hr {
   margin: 1em 0;
   padding: 0;
 }
-
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
-
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-  resize: vertical;
-}
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden,
-[hidden] {
-  display: none !important;
-}
-
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
-
-.visually-hidden {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
-}
-
-/*
- * Extends the .visually-hidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.visually-hidden.focusable:active,
-.visually-hidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
-}
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-  visibility: hidden;
-}
-
-/*
- * Clearfix: contain floats
- *
- * The use of `table` rather than `block` is only necessary if using
- * `::before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
-  content: "";
-  display: table;
-}
-
-.clearfix::after {
-  clear: both;
-}
-
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
-
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
-
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
-
-@media print {
-  *,
-  *::before,
-  *::after {
-    background: #fff !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
-}
-
