@@ -16,15 +16,6 @@
 
 </head>
 
-<!--
-TODO:
-  CURRENT -
-  AHEAD -
-
-FIXME:
-
--->
-
 <body>
   <!--navigation bar-->
   <header id="navBar" class="navBar">
@@ -54,9 +45,8 @@ FIXME:
     </nav>
   </header>
 
+  <div class="login-popup" id="login-form">
 
-  <div class="login-popup" id="loginForm">
-<!-- action is what action takes place. This action sends collected info to "action_page.php" file-->
     <form action="" class="form-container" >
       <h1>Login</h1>
 
@@ -69,14 +59,20 @@ FIXME:
       <button type="submit" class="btn">Login</button>
     </form>
   </div>
-<!--  Overlay is solution to closing login form -->
+
   <div class="overlay" id="overlay"></div>
+
+  <div class="tag-line">
+    <span>BOLD</span>
+    <span>NATURAL</span>
+    <span>STYLE</span>
+  </div>
 
 
 <!--  TODO
         PRODUCT-DISPLAY-V2-->
   <div class="product-display-v2">
-    <div class="product-one fade-in-left">
+    <div class="product fade-in-left">
       <img src="images/PNG files/tempProductImage.jpg" class="product-img-left" alt="Product Image One">
       <div class="product-details">
         <h1 class="product-name">Hair Wax</h1>
@@ -87,18 +83,19 @@ FIXME:
       </div>
     </div>
 
-    <div class="product-two fade-in-right">
-      <div class="product-details center-display">
+    <div class="product fade-in-left">
+      <img src="images/PNG files/tempProductImage.jpg" class="product-img-left" alt="Product Image Two">
+      <div class="product-details">
         <h1 class="product-name">Pomade</h1>
         <hr>
         <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
           Alias, aperiam blanditiis culpa enim fuga, maiores nisi quod sequi tenetur ut
           veniam voluptates! Architecto consequuntur dolorum error magni nesciunt obcaecati rerum.</p>
       </div>
-      <img src="images/PNG files/tempProductImage.jpg" class="product-img-right" alt="Product Image Two">
+
     </div>
 
-    <div class="product-three fade-in-left">
+    <div class="product fade-in-left">
       <img src="images/PNG files/tempProductImage.jpg" class="product-img-left" alt="Product Image Three">
       <div class="product-details">
         <h1 class="product-name">Grease</h1>
@@ -121,6 +118,7 @@ FIXME:
       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
       Alias, aperiam blanditiis culpa enim fuga, maiores nisi quod sequi tenetur ut
       veniam voluptates! Architecto consequuntur dolorum error magni nesciunt obcaecati rerum.
+    </p>
   </div>
 
   <div class="newsletter-signup-container">
@@ -130,6 +128,7 @@ FIXME:
       <button type="submit">Subscribe</button>
     </form>
   </div>
+
 
 
   <div class="alternate-products-container">
