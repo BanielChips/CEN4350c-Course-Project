@@ -361,6 +361,28 @@ body {
   }
 }
 
+/* Added during server development.
+   Used to display product information from a database. */
+.cost-and-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price {
+  font-size: 1.2em;
+  margin-right: 20px;
+}
+
+.add-to-cart {
+  padding: 10px 20px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
 
 .page-split {
   margin: 0 auto;

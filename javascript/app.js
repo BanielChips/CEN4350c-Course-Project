@@ -47,12 +47,26 @@ function Product(pid, productName, productDescription){
   this.productDescription = productDescription;
 }
 
-// Until the database is integrated,
-// product objects will be used to display and test page functionality
-const product_hair_wax =
-  new Product("0001", "hair wax", "High hold");
-const product_hair_pomade =
-  new Product("0002", "hair pomade", "Moderate hold. Great texture.");
-const product_hair_grease =
-  new Product("0003", "hair grease", "Moderate hold. Glossy finish.");
+// Starting to work with data from the SQL server
+document.addEventListener('DOMContentLoaded', (event) => {
+    getProducts();
+});
+
+
+function getProducts() {
+    fetch('/products')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response failed');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetching table data:', error);
+        });
+}
+
 

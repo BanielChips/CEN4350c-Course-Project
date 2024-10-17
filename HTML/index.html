@@ -8,13 +8,12 @@
   <meta name="description" content=
     "This is the course project for CEN 4350C. It is the landing page for the Key Style brand men's hair styling products.">
 
-  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/mediaQueries.css">
 
   <script src="js/app.js"></script>
   <link rel="icon" href="images/PNG%20files/Favicon.png" sizes="any">
-
 </head>
 
 <body>
@@ -75,35 +74,41 @@
   <div class="product-display-v2">
     <div class="product fade-in-left">
       <img src="images/PNG files/tempProductImage.jpg" class="product-img-left" alt="Product Image One">
-      <div class="product-details">
+      <div class="product-details" id="product-one">
         <h1 class="product-name">Hair Wax</h1>
         <hr>
-        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Alias, aperiam blanditiis culpa enim fuga, maiores nisi quod sequi tenetur ut
-          veniam voluptates! Architecto consequuntur dolorum error magni nesciunt obcaecati rerum.</p>
+        <p class="product-description" data-product-description="1">foo fie fee foo</p>
+        <div class="cost-and-cart">
+          <span class="product-price">PRODUCT PRICE</span>
+          <button class="add-to-cart" data-product-id="1">Add to Cart</button>
+        </div>
       </div>
     </div>
 
     <div class="product fade-in-left">
       <img src="images/PNG files/tempProductImage.jpg" class="product-img-left" alt="Product Image Two">
-      <div class="product-details">
+      <div class="product-details" id="product-two">
         <h1 class="product-name">Pomade</h1>
         <hr>
-        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Alias, aperiam blanditiis culpa enim fuga, maiores nisi quod sequi tenetur ut
-          veniam voluptates! Architecto consequuntur dolorum error magni nesciunt obcaecati rerum.</p>
+        <p class="product-description" data-product-description="2">foo fie fee foo</p>
+        <div class="cost-and-cart">
+          <span class="product-price">PRODUCT PRICE</span>
+          <button class="add-to-cart" data-product-id="2">Add to Cart</button>
+        </div>
       </div>
 
     </div>
 
     <div class="product fade-in-left">
       <img src="images/PNG files/tempProductImage.jpg" class="product-img-left" alt="Product Image Three">
-      <div class="product-details">
+      <div class="product-details" id="product-three">
         <h1 class="product-name">Grease</h1>
         <hr>
-        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Alias, aperiam blanditiis culpa enim fuga, maiores nisi quod sequi tenetur ut
-          veniam voluptates! Architecto consequuntur dolorum error magni nesciunt obcaecati rerum.</p>
+        <p class="product-description" data-product-description="3">foo fie fee foo</p>
+        <div class="cost-and-cart">
+          <span class="product-price">PRODUCT PRICE</span>
+          <button class="add-to-cart" data-product-id="3">Add to Cart</button>
+        </div>
       </div>
     </div>
   </div>
@@ -113,13 +118,13 @@
   <h1 class="why-key-style-h1">Why Key Style?</h1>
   <div class="why-key-style">
     <img src="images/PNG files/TempInsert.jpg" alt="horribly drawn image"/>
-    <p>Key style is the Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Alias, aperiam blanditiis culpa enim fuga, maiores nisi quod sequi tenetur ut
-      veniam voluptates! Architecto consequuntur dolorum error magni nesciunt obcaecati rerum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Alias, aperiam blanditiis culpa enim fuga, maiores nisi quod sequi tenetur ut
-      veniam voluptates! Architecto consequuntur dolorum error magni nesciunt obcaecati rerum.
+    <p>At key style it is our mission to ensure every man can look and feel his best.
+      To this, Key style delivers premier men's and fashion essentials to help you perfect your look from head to toe.
+      We believe Key Style is the difference maker in a man's style choice whether they are improving their everyday style
+      or dressing for who they want to be with our line of expressive products for any men's grooming needs.
+      With Key Style, it's about looking good inside and out and finding the key to your confidence.
     </p>
+
   </div>
 
   <div class="newsletter-signup-container">
