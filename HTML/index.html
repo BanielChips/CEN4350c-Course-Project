@@ -12,41 +12,34 @@
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/mediaQueries.css">
 
-  <script src="js/app.js"></script>
   <link rel="icon" href="images/PNG%20files/Favicon.png" sizes="any">
 </head>
 
 <body>
-  <!--navigation bar-->
   <header id="navBar" class="navBar">
-    <!--  link to home page, left side-->
     <a class="headerLogoLink" href="#home">
       <div class="headerLogoWrapper">
         <img class="navLogo" src="images/PNG%20files/Favicon.png">
       </div>
     </a>
-  <!--  centered webpage links, navigation-->
     <ul>
       <li><a class="navElement navbarGrowOnHover underlineHover" href="#shop">Shop</a></li>
       <li><a class="navElement navbarGrowOnHover underlineHover" href="#style tips">Your Style</a></li>
       <li><a class="navElement navbarGrowOnHover underlineHover" href="#about Us">About Us</a></li>
 <!--      <li><a class="navElement navbarGrowOnHover underlineHover" href="#newsletter">Newsletter</a></li>-->
     </ul>
-  <!--  webpage login request, right side-->
     <nav class="navIcons">
-<!--        Disabling anchor while implementing login display - debugging why login is not popping up
-            <a href="#account" class="logo navbarGrowOnHover login-button" onclick="openForm()">-->
-<!--        <img src="images/SVG%20files/Account.svg" alt="account"/></a>-->
       <div class="logo navbarGrowOnHover" onclick="openForm()">
         <img src="images/SVG%20files/Account.svg" alt="account"/>
       </div>
-      <a href="#shoppingCart" class="logo navbarGrowOnHover">
-        <img src="images/SVG%20files/Cart.svg" alt="cart"></a>
+      <div class="logo navbarGrowOnHover" style="position: relative;">
+        <img src="images/SVG%20files/Cart.svg" alt="cart">
+        <span class="cart-counter" id="cart-count">0</span>
+      </div>
     </nav>
   </header>
 
   <div class="login-popup" id="login-form">
-
     <form action="" class="form-container" >
       <h1>Login</h1>
 
@@ -57,6 +50,29 @@
       <input type="password" placeholder="Enter Password" id="psw" required>
 
       <button type="submit" class="btn">Login</button>
+    </form>
+    <div class="registration-container">
+      <button type="submit" class="btn" id="registration-popup">Sign Up</button>
+    </div>
+  </div>
+
+  <div class="registration-popup" id="registration-form">
+    <form action="/register" method="POST" class="form-container">
+      <h1>Unlock Your Style</h1>
+
+      <label for="first-name"><b>First Name</b></label>
+      <input type="text" placeholder="First" id="first-name" name="first-name" required>
+
+      <label for="last-name"><b>Last Name</b></label>
+      <input type="text" placeholder="Last" id="last-name" name="last-name" required>
+
+      <label for="email"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email" id="registration-email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" id="registration-psw" name="password" required>
+
+      <button type="submit" class="btn">Register</button>
     </form>
   </div>
 
@@ -74,12 +90,12 @@
   <div class="product-display-v2">
     <div class="product fade-in-left">
       <img src="images/PNG files/tempProductImage.jpg" class="product-img-left" alt="Product Image One">
-      <div class="product-details" id="product-one">
-        <h1 class="product-name">Hair Wax</h1>
+      <div class="product-details" id="product-1">
+        <h1 class="product-name"></h1>
         <hr>
-        <p class="product-description" data-product-description="1">foo fie fee foo</p>
+        <p class="product-description" id="product-description-one" data-product-description="1"></p>
         <div class="cost-and-cart">
-          <span class="product-price">PRODUCT PRICE</span>
+          <span class="product-price"></span>
           <button class="add-to-cart" data-product-id="1">Add to Cart</button>
         </div>
       </div>
@@ -87,7 +103,7 @@
 
     <div class="product fade-in-left">
       <img src="images/PNG files/tempProductImage.jpg" class="product-img-left" alt="Product Image Two">
-      <div class="product-details" id="product-two">
+      <div class="product-details" id="product-2">
         <h1 class="product-name">Pomade</h1>
         <hr>
         <p class="product-description" data-product-description="2">foo fie fee foo</p>
@@ -96,12 +112,11 @@
           <button class="add-to-cart" data-product-id="2">Add to Cart</button>
         </div>
       </div>
-
     </div>
 
     <div class="product fade-in-left">
       <img src="images/PNG files/tempProductImage.jpg" class="product-img-left" alt="Product Image Three">
-      <div class="product-details" id="product-three">
+      <div class="product-details" id="product-3">
         <h1 class="product-name">Grease</h1>
         <hr>
         <p class="product-description" data-product-description="3">foo fie fee foo</p>
@@ -129,13 +144,11 @@
 
   <div class="newsletter-signup-container">
     <h2>Subscribe to Our Newsletter</h2>
-    <form class="newsletter-signup-form">
-      <input type="email" placeholder="Enter your email" required>
-      <button type="submit">Subscribe</button>
+    <form class="newsletter-signup-form" id="newsletter-signup-form">
+      <input type="email" id="email-input" placeholder="Enter your email" required>
+      <button type="submit" id="newsletter-button">Subscribe</button>
     </form>
   </div>
-
-
 
   <div class="alternate-products-container">
     <h1>Additional Care</h1>
@@ -164,5 +177,8 @@
         <li>jobs</li>
     </ul>
   </div>
+
+<!--  Javascript wants to be stupid and cause trouble by trying to load first-->
+  <script src="js/app.js"></script>
 </body>
 </html>

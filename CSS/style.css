@@ -35,9 +35,9 @@ body {
   grid-template-columns: auto auto auto;
   column-gap: 2rem;
   top: 0;
-  position: relative;
+  position: sticky;
   transition: 0.4s;
-  z-index: 10;
+  z-index: 11;
   height: 60px;
   padding-bottom: 5px;
 }
@@ -87,7 +87,6 @@ body {
   margin: 1rem 2rem;
 }
 
-
 .navBar a {
   color: #FDFFFC;
   text-align: center;
@@ -98,6 +97,28 @@ body {
 .navIcons div {
   display: flex;
   align-items: center;
+}
+
+.cart-counter {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #ff9f1c;
+  color: #011627;
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  padding: 5px;
+  font-family:  Lobster, sans-serif;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 10px;
+  display: none;
+}
+
+.cart-counter.active {
+  display: inline-block;
 }
 
 /* On hover of Navigation bar elements (!logo) grow element size*/
@@ -145,27 +166,27 @@ body {
 /* The popup form - hidden by default */
 .login-popup {
   display: none;
-  position: absolute;
-  top: 60px;
+  position: fixed;
+  top: -300px;
   right: 15px;
-  left: auto;
   width: 350px;
   padding: 20px;
   border: 3px solid #f1f1f1;
-  z-index: 9;
+  z-index: 10;
   background: #FDFFFC;
   box-sizing: border-box;
+  transition: top 0.6s ease;
 }
 
-/* Add styles to the form container */
 .form-container {
+  width: 100%;
+  height: auto;
   max-width: 300px;
   padding: 10px;
   background-color: #FDFFFC;
   font-family: Montserrat, sans-serif;
 }
 
-/* Full-width input fields */
 .form-container input[type=text], .form-container input[type=password] {
   width: 100%;
   padding: 15px;
@@ -174,13 +195,12 @@ body {
   background: #FDFFFC;
 }
 
-/* When the inputs get focus, do something */
 .form-container input[type=text]:focus, .form-container input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 }
 
-.form-container .btn {
+.btn {
   background-color: #ff9f1c;
   color: white;
   padding: 16px 20px;
@@ -196,6 +216,28 @@ body {
   opacity: 1;
 }
 
+.registration-container {
+  clear: both;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.registration-popup {
+  display: none;
+  position: fixed;
+  top: -300px;
+  right: 15px;
+  width: 350px;
+  padding: 20px;
+  border: 3px solid #f1f1f1;
+  z-index: 10;
+  background: #FDFFFC;
+  box-sizing: border-box;
+  transition: top 0.6s ease;
+}
+
 /* clicking on overlay closes login display */
 .overlay {
   display: none;
@@ -204,7 +246,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 8;
+  z-index: 9;
 }
 
 .tag-line {
@@ -361,11 +403,9 @@ body {
   }
 }
 
-/* Added during server development.
-   Used to display product information from a database. */
 .cost-and-cart {
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
 }
 
