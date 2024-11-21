@@ -1,11 +1,13 @@
 const express = require('express');
 const mysql = require('mysql');
 const bcrypt = require('bcrypt');
+const path = require('path');
 
 const app = express();
 const port = 3000;
 
 app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'html files')));
 app.use(express.json());
 
 // Including credentials from a js file ignored by git
@@ -27,14 +29,30 @@ connection.connect((err) => {
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/');
+  res.sendFile(path.join(__dirname, 'html files', 'index.html'));
+});
+
+app.get('/Shop', (req, res) => {
+  res.sendFile(path.join(__dirname, 'html files', 'Shop.html'));
+});
+
+app.get('/Your-Style', (req, res) => {
+  res.sendFile(path.join(__dirname, 'html files', 'Your-Style.html'));
+});
+
+app.get('/About-us', (req, res) => {
+  res.sendFile(path.join(__dirname, 'html files', 'About-Us.html'));
+});
+
+app.get('/cart', (req, res) => {
+  res.sendFile(path.join(__dirname, 'html files', 'Cart.html'));
 });
 
 app.get('/get-data', (req, res) => {
     connection.query('SELECT * FROM products', (err, results) => {
         if (err) {
             console.error('Error executing query:', err);
-            res.status(500).send('Database error');
+            res.status(500).json({error: 'Database error'});
             return;
         }
         res.json(results);
@@ -64,10 +82,10 @@ app.post('/register', (req, res) => {
     return  res.status(400).json({ error: '(first, last, email, password) are required' });
   }
 
-  connection.query("SELECT * FROM users WHERE email = ?", [email], (err, results) => {
+  connection.query('SELECT * FROM users WHERE email = ?', [email], (err, results) => {
     if (err) {
       console.error('Error finding email', err);
-      return res.status(500).send('Database error');
+      return res.status(500).json({error: 'Database error'});
     }
 
     if (results.length > 0) {
@@ -76,15 +94,15 @@ app.post('/register', (req, res) => {
 
     bcrypt.hash(password, 10, (err, hashedPass) => {
       if(err) {
-        consle.error('Error jumbling password');
-        return res.status(500).send('Potato error');
+        console.error('Error jumbling password');
+        return res.status(500).json({error: 'Password compare error'});
       }
 
-      const query = 'INSERT INTO users (firstName, lastName, email, password) VALUES (?, ?, ?)';
-      connection.query(query, [name, email, hashedPass], (err, results) => {
+      const query = 'INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)';
+      connection.query(query, [firstName, lastName, email, hashedPass], (err, results) => {
         if(err) {
           console.error('Error submitting to database');
-          return res.status(500).send('Database error');
+          return res.status(500).json({error: 'Database error'});
         }
 
         res.status(200).json({ message: 'User Registered'});
@@ -97,13 +115,13 @@ app.post('/login', (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    return req.status(400).json({error: 'Username and password required'});
+    return res.status(400).json({error: 'Username and password required'});
   }
 
   connection.query('SELECT * FROM users WHERE email = ?', [email], (err, results) => {
     if (err) {
       console.error('A user with the given email has not been found');
-      return res.status(500).send('Verification error');
+      return res.status(500).json({error: 'Verification error'});
     }
 
     if (results.length === 0) {
@@ -115,18 +133,16 @@ app.post('/login', (req, res) => {
     bcrypt.compare(password, user.password, (err, passMatch) => {
       if (err) {
         console.error('Error with encryption compare', err);
-        return res.status(500).send('Server error');
+        return res.status(500).json({error: 'Server error'});
       }
 
       if (!passMatch) {
-        return res.status(400).send('Password not valid');
+        return res.status(400).json({error: 'Password not valid'});
       }
 
       res.status(200).json({message: 'Login successful'});
     })
-
   });
-
 })
 
 app.listen(port, () => {

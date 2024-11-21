@@ -17,22 +17,24 @@
 
 <body>
   <header id="navBar" class="navBar">
-    <a class="headerLogoLink" href="#home">
+    <a class="headerLogoLink" href="/">
       <div class="headerLogoWrapper">
         <img class="navLogo" src="images/PNG%20files/Favicon.png">
       </div>
     </a>
     <ul class="mq-display-none">
-      <li><a class="navElement navbarGrowOnHover underlineHover" href="#shop">Shop</a></li>
-      <li><a class="navElement navbarGrowOnHover underlineHover" href="#style tips">Your Style</a></li>
-      <li><a class="navElement navbarGrowOnHover underlineHover" href="#about Us">About Us</a></li>
+      <li><a class="navElement navbarGrowOnHover underlineHover" href="/Shop.html">Shop</a></li>
+      <li><a class="navElement navbarGrowOnHover underlineHover" href="/Your-Style.html">Your Style</a></li>
+      <li><a class="navElement navbarGrowOnHover underlineHover" href="/About-Us.html">About Us</a></li>
     </ul>
-    <nav class="navIcons">
+    <nav class="navIcons" id="navIcons">
       <div class="logo navbarGrowOnHover" onclick="openForm()">
         <img src="images/SVG%20files/Account.svg" alt="account"/>
       </div>
       <div class="logo navbarGrowOnHover" style="position: relative;">
-        <img src="images/SVG%20files/Cart.svg" alt="cart">
+        <a href="/cart" class="cart-img">
+          <img src="images/SVG%20files/Cart.svg" alt="cart">
+        </a>
         <span class="cart-counter" id="cart-count">0</span>
       </div>
     </nav>
@@ -83,9 +85,6 @@
     <span>STYLE</span>
   </div>
 
-
-<!--  TODO
-        PRODUCT-DISPLAY-V2-->
   <div class="product-display-v2">
     <div class="product fade-in-left">
       <img src="images/PNG files/tempProductImage.jpg" class="product-img-left" alt="Product Image One">

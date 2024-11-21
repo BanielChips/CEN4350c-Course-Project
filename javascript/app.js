@@ -1,3 +1,9 @@
+/* TODO
+    login popup does not close when re-clicking login icon.
+    Registration does not close on overlay press.
+    Overlay should also close on off click of registration.
+*/
+
 function openForm() {
   document.getElementById("login-form").style.display = "flex";
   document.getElementById("login-form").style.flexDirection = "column";
@@ -35,6 +41,7 @@ window.onclick = function(event) {
   var popup = document.getElementById("login-form");
   var overlay = document.getElementById("overlay");
   var registrationOverlay = document.getElementById("registration-form");
+  var navIcons = document.getElementById("navIcons");
 
   var isPopupVisible = window.getComputedStyle(popup).display !== "none";
   var isRegistrationVisible = window.getComputedStyle(registrationOverlay) !== "none";
@@ -47,13 +54,10 @@ window.onclick = function(event) {
     }
   }
 
-  if (isRegistrationVisible) {
-    if (overlay.contains(event.target)) {
+  if (isRegistrationVisible && navIcons.contains(event.target)) {
       closeRegistration();
-    }
+      openForm();
   }
-
-
 }
 
 document.getElementById("registration-popup").addEventListener("click", function() {
@@ -65,24 +69,6 @@ document.getElementById("registration-popup").addEventListener("click", function
   }, 10);
 });
 
-// Removed nav bar change on scroll to just be default display
-// window.onscroll = function() { stickyHeader() };
-function stickyHeader() {
-  if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-    document.getElementById("navBar").style.transition = "0.4s";
-    document.getElementById("navBar").style.fontSize = "22px";
-    document.getElementById("navBar").style.position = "sticky";
-  } else {
-    document.getElementById("navBar").style.fontSize = "26px";
-    document.getElementById("navBar").style.position = "static";
-    document.getElementById("navBar").style.transition = "0.2s";
-  }
-}
-
-// TODO:
-//  After - User Authentication:
-//  let cartCount = query(SELECT count(*) FROM cart_items)
-//  (Also consider quantity of each item in users' carts on top of addition to count(*))
 let cartCount = 0;
 function addToCart() {
   console.log("adding item to cart");
@@ -127,17 +113,6 @@ function fetchProductData() {
         .catch(error => {
             console.error('There was a problem with the fetching table data:', error);
         });
-}
-
-function fetchProductPrice() {
-  fetch('/get-data')
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('price').textContent = data.price;
-    })
-    .catch(error => {
-      console.error('Error fetching product price:', error);
-    });
 }
 
 function loadProductData(productInformation) {
@@ -227,7 +202,6 @@ document.getElementById("registration-form").addEventListener("submit", function
     })
     .catch(error => console.error("WOAH:", error))
 });
-
 
 document.addEventListener('DOMContentLoaded', (event) => {
   fetchProductData().then( () => {
